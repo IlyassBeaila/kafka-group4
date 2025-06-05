@@ -17,4 +17,6 @@ docker exec -it kafka bash
 ```
 
 ## Entrer dans le conteneur kafka
-```bash
+```bash-
+
+kafka-topics.sh --bootstrap-server localhost:9092 --list

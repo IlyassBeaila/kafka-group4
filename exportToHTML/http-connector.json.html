@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>http-connector.json</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #080808;}
+.s1 { color: #067d17;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+http-connector.json</font>
+</center></td></tr></table>
+<pre><span class="s0">{</span>
+  <span class="s1">&quot;name&quot;</span><span class="s0">: </span><span class="s1">&quot;http-source-connector&quot;</span><span class="s0">,</span>
+  <span class="s1">&quot;config&quot;</span><span class="s0">: {</span>
+    <span class="s1">&quot;connector.class&quot;</span><span class="s0">: </span><span class="s1">&quot;com.github.jcustenborder.kafka.connect.http.HttpSourceConnector&quot;</span><span class="s0">,</span>
+    <span class="s1">&quot;tasks.max&quot;</span><span class="s0">: </span><span class="s1">&quot;1&quot;</span><span class="s0">,</span>
+    <span class="s1">&quot;url&quot;</span><span class="s0">: </span><span class="s1">&quot;https://randomuser.me/api/&quot;</span><span class="s0">,</span>
+    <span class="s1">&quot;request.interval.ms&quot;</span><span class="s0">: </span><span class="s1">&quot;10000&quot;</span><span class="s0">,</span>
+    <span class="s1">&quot;topic&quot;</span><span class="s0">: </span><span class="s1">&quot;api-data&quot;</span><span class="s0">,</span>
+    <span class="s1">&quot;value.converter&quot;</span><span class="s0">: </span><span class="s1">&quot;org.apache.kafka.connect.json.JsonConverter&quot;</span><span class="s0">,</span>
+    <span class="s1">&quot;value.converter.schemas.enable&quot;</span><span class="s0">: </span><span class="s1">&quot;false&quot;</span>
+  <span class="s0">}</span>
+<span class="s0">}</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>docker-compose.yml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #080808;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+docker-compose.yml</font>
+</center></td></tr></table>
+<pre><span class="s0">version</span><span class="s1">: </span><span class="s2">'3.8'</span>
+
+<span class="s0">services</span><span class="s1">:</span>
+  <span class="s0">zookeeper</span><span class="s1">:</span>
+    <span class="s0">image</span><span class="s1">: </span><span class="s3">confluentinc/cp-zookeeper:7.3.0</span>
+    <span class="s0">container_name</span><span class="s1">: </span><span class="s3">zookeeper</span>
+    <span class="s0">ports</span><span class="s1">:</span>
+      <span class="s1">- </span><span class="s2">&quot;2181:2181&quot;</span>
+    <span class="s0">environment</span><span class="s1">:</span>
+      <span class="s0">ZOOKEEPER_CLIENT_PORT</span><span class="s1">: </span><span class="s3">2181</span>
+      <span class="s0">ZOOKEEPER_TICK_TIME</span><span class="s1">: </span><span class="s3">2000</span>
+
+  <span class="s0">kafka</span><span class="s1">:</span>
+    <span class="s0">image</span><span class="s1">: </span><span class="s3">confluentinc/cp-kafka:7.3.0</span>
+    <span class="s0">container_name</span><span class="s1">: </span><span class="s3">kafka</span>
+    <span class="s0">ports</span><span class="s1">:</span>
+      <span class="s1">- </span><span class="s2">&quot;9092:9092&quot;</span>
+    <span class="s0">depends_on</span><span class="s1">:</span>
+      <span class="s1">- </span><span class="s3">zookeeper</span>
+    <span class="s0">environment</span><span class="s1">:</span>
+      <span class="s0">KAFKA_BROKER_ID</span><span class="s1">: </span><span class="s3">1</span>
+      <span class="s0">KAFKA_ZOOKEEPER_CONNECT</span><span class="s1">: </span><span class="s3">zookeeper:2181</span>
+      <span class="s0">KAFKA_ADVERTISED_LISTENERS</span><span class="s1">: </span><span class="s3">PLAINTEXT://localhost:9092</span>
+      <span class="s0">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR</span><span class="s1">: </span><span class="s3">1</span>
+</pre>
+</body>
+</html>

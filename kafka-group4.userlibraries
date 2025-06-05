@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Maven: org.apache.kafka:kafka-clients:3.6.0">
+    <archive path="C:/Users/ilyas/.m2/repository/org/apache/kafka/kafka-clients/3.6.0/kafka-clients-3.6.0.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.core:jackson-databind:2.16.1">
+    <archive path="C:/Users/ilyas/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.16.1/jackson-databind-2.16.1.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.16.1">
+    <archive path="C:/Users/ilyas/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.16.1/jackson-annotations-2.16.1.jar" />
+  </library>
+  <library name="Maven: org.slf4j:slf4j-api:1.7.36">
+    <archive path="C:/Users/ilyas/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar" />
+  </library>
+  <library name="Maven: com.fasterxml.jackson.core:jackson-core:2.16.1">
+    <archive path="C:/Users/ilyas/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.16.1/jackson-core-2.16.1.jar" />
+  </library>
+  <library name="Maven: com.github.luben:zstd-jni:1.5.5-1">
+    <archive path="C:/Users/ilyas/.m2/repository/com/github/luben/zstd-jni/1.5.5-1/zstd-jni-1.5.5-1.jar" />
+  </library>
+  <library name="Maven: org.xerial.snappy:snappy-java:1.1.10.4">
+    <archive path="C:/Users/ilyas/.m2/repository/org/xerial/snappy/snappy-java/1.1.10.4/snappy-java-1.1.10.4.jar" />
+  </library>
+  <library name="Maven: org.lz4:lz4-java:1.8.0">
+    <archive path="C:/Users/ilyas/.m2/repository/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar" />
+  </library>
+</eclipse-userlibraries>
+

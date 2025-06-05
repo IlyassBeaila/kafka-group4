@@ -1,0 +1,14 @@
+{
+  "name": "http-source-connector",
+  "config": {
+    "connector.class": "com.tm.kafka.connect.rest.RestSourceConnector",
+    "tasks.max": "1",
+    "rest.source.poll.interval.ms": "10000",
+    "rest.source.method": "GET",
+    "rest.source.url": "https://jsonplaceholder.typicode.com/posts",
+    "rest.source.headers": "Content-Type:application/json",
+    "rest.source.topic": "posts_topic",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter"
+  }
+}

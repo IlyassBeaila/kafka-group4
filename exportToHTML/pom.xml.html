@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>pom.xml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #080808;}
+.s1 { color: #0033b3;}
+.s2 { color: #174ad4;}
+.s3 { color: #067d17;}
+.s4 { color: #080808;}
+.s5 { color: #8c8c8c; font-style: italic;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+pom.xml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;</span><span class="s1">project </span><span class="s2">xmlns</span><span class="s3">=&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+         <span class="s2">xmlns:xsi</span><span class="s3">=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+         <span class="s2">xsi:schemaLocation</span><span class="s3">=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;</span><span class="s1">modelVersion</span><span class="s0">&gt;</span><span class="s4">4.0.0</span><span class="s0">&lt;/</span><span class="s1">modelVersion</span><span class="s0">&gt;</span>
+
+    <span class="s0">&lt;</span><span class="s1">groupId</span><span class="s0">&gt;</span><span class="s4">com.group4.kafka</span><span class="s0">&lt;/</span><span class="s1">groupId</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;</span><span class="s1">artifactId</span><span class="s0">&gt;</span><span class="s4">kafka-group4</span><span class="s0">&lt;/</span><span class="s1">artifactId</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;</span><span class="s1">version</span><span class="s0">&gt;</span><span class="s4">1.0-SNAPSHOT</span><span class="s0">&lt;/</span><span class="s1">version</span><span class="s0">&gt;</span>
+
+    <span class="s0">&lt;</span><span class="s1">properties</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;</span><span class="s1">maven.compiler.source</span><span class="s0">&gt;</span><span class="s4">11</span><span class="s0">&lt;/</span><span class="s1">maven.compiler.source</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;</span><span class="s1">maven.compiler.target</span><span class="s0">&gt;</span><span class="s4">11</span><span class="s0">&lt;/</span><span class="s1">maven.compiler.target</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;</span><span class="s1">project.build.sourceEncoding</span><span class="s0">&gt;</span><span class="s4">UTF-8</span><span class="s0">&lt;/</span><span class="s1">project.build.sourceEncoding</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;/</span><span class="s1">properties</span><span class="s0">&gt;</span>
+
+    <span class="s0">&lt;</span><span class="s1">dependencies</span><span class="s0">&gt;</span>
+        <span class="s5">&lt;!-- Kafka Client --&gt;</span>
+        <span class="s0">&lt;</span><span class="s1">dependency</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s1">groupId</span><span class="s0">&gt;</span><span class="s4">org.apache.kafka</span><span class="s0">&lt;/</span><span class="s1">groupId</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s1">artifactId</span><span class="s0">&gt;</span><span class="s4">kafka-clients</span><span class="s0">&lt;/</span><span class="s1">artifactId</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s1">version</span><span class="s0">&gt;</span><span class="s4">3.6.0</span><span class="s0">&lt;/</span><span class="s1">version</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/</span><span class="s1">dependency</span><span class="s0">&gt;</span>
+
+        <span class="s5">&lt;!-- JSON (Jackson) --&gt;</span>
+        <span class="s0">&lt;</span><span class="s1">dependency</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s1">groupId</span><span class="s0">&gt;</span><span class="s4">com.fasterxml.jackson.core</span><span class="s0">&lt;/</span><span class="s1">groupId</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s1">artifactId</span><span class="s0">&gt;</span><span class="s4">jackson-databind</span><span class="s0">&lt;/</span><span class="s1">artifactId</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s1">version</span><span class="s0">&gt;</span><span class="s4">2.16.1</span><span class="s0">&lt;/</span><span class="s1">version</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/</span><span class="s1">dependency</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;/</span><span class="s1">dependencies</span><span class="s0">&gt;</span>
+
+    <span class="s0">&lt;</span><span class="s1">build</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;</span><span class="s1">plugins</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;</span><span class="s1">plugin</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;</span><span class="s1">groupId</span><span class="s0">&gt;</span><span class="s4">org.codehaus.mojo</span><span class="s0">&lt;/</span><span class="s1">groupId</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;</span><span class="s1">artifactId</span><span class="s0">&gt;</span><span class="s4">exec-maven-plugin</span><span class="s0">&lt;/</span><span class="s1">artifactId</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;</span><span class="s1">version</span><span class="s0">&gt;</span><span class="s4">3.1.0</span><span class="s0">&lt;/</span><span class="s1">version</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;</span><span class="s1">configuration</span><span class="s0">&gt;</span>
+                    <span class="s0">&lt;</span><span class="s1">mainClass</span><span class="s0">&gt;</span><span class="s4">com.group4.kafka.consumer.ApiDataConsumer</span><span class="s0">&lt;/</span><span class="s1">mainClass</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;/</span><span class="s1">configuration</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;/</span><span class="s1">plugin</span><span class="s0">&gt;</span>
+        <span class="s0">&lt;/</span><span class="s1">plugins</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;/</span><span class="s1">build</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/</span><span class="s1">project</span><span class="s0">&gt;</span>
+</pre>
+</body>
+</html>

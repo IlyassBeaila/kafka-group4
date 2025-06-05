@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #080808;}
+.s3 { color: #871094; font-style: italic;}
+.s4 { color: #067d17;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+README.md</font>
+</center></td></tr></table>
+<pre><span class="s0"># </span><span class="s2">kafka-group4</span>
+
+
+<span class="s2">Ilyass</span>
+<span class="s0"># </span><span class="s2">Infrastructure Kafka avec Docker</span>
+
+<span class="s0">## </span><span class="s2">Lancer Kafka et Zookeeper</span>
+<span class="s0">```</span><span class="s3">bash</span>
+
+<span class="s4">cd infra</span>
+<span class="s4">docker-compose up -d</span>
+<span class="s0">```</span>
+<span class="s0">## </span><span class="s2">Entrer dans le conteneur kafka</span>
+<span class="s0">```</span><span class="s3">bash</span>
+
+<span class="s4">docker exec -it kafka bash</span>
+<span class="s0">```</span>
+
+<span class="s0">## </span><span class="s2">Entrer dans le conteneur kafka</span>
+<span class="s0">```</span><span class="s3">bash-</span>
+
+<span class="s4">kafka-topics.sh --bootstrap-server localhost:9092 --list</span></pre>
+</body>
+</html>
