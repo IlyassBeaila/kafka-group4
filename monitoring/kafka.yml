@@ -1,0 +1,8 @@
+# JMX Exporter config – Kafka broker
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+
+# Règles : on exporte tout pour commencer.
+# (Tu pourras filtrer plus finement ensuite)
+rules:
+  - pattern: ".*"

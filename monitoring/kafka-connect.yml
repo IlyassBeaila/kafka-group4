@@ -1,0 +1,16 @@
+# JMX Exporter config – Kafka Connect
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+
+# On se concentre sur les MBeans Kafka Connect utiles
+whitelistObjectNames:
+  - kafka.connect:type=connect-worker-metrics,*
+  - kafka.connect:type=connect-metrics,*
+  - kafka.connect:type=connector-metrics,*
+  - kafka.connect:type=*-task-metrics,*
+
+rules:
+  # Exemple : remapper le nom des métriques pour plus de clarté.
+  # Ici, on transforme “kafka.connect:type=connect-worker-metrics” → kafka_connect_connect-worker-metrics
+  - pattern: "kafka.connect<*>([^:]+)"
+    name: kafka_connect_$1
