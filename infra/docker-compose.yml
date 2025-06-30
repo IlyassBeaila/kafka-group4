@@ -1,28 +1,49 @@
-version: '3.8'
+version: "3.8"
 
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
-    ports:
-      - "2181:2181"
+    container_name: zookeeper
+    restart: unless-stopped
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
 
   kafka:
     image: confluentinc/cp-kafka:7.3.0
-    ports:
-      - "9092:9092"
+    container_name: kafka
+    restart: unless-stopped
+    depends_on:
+      - zookeeper
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      # --- JMX Exporter -----------------------------------
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: 127.0.0.1
+      KAFKA_JMX_OPTS: >
+        -javaagent:/jmx/jmx_prometheus_javaagent.jar=9101:/jmx/kafka.yml
+        -Dcom.sun.management.jmxremote
+        -Dcom.sun.management.jmxremote.authenticate=false
+        -Dcom.sun.management.jmxremote.ssl=false
+    ports:
+      - "9092:9092"
+      - "9101:9101"
+    volumes:
+      # NB : chemins host relatifs au fichier compose situé dans infra/
+      - ../monitoring/jmx_prometheus_javaagent-1.3.0.jar:/jmx/jmx_prometheus_javaagent.jar
+      - ../monitoring/kafka.yml:/jmx/kafka.yml
 
   connect:
     image: confluentinc/cp-kafka-connect:7.3.0
-    ports:
-      - "8083:8083"
+    container_name: connect
+    restart: unless-stopped
+    depends_on:
+      - kafka
     environment:
       CONNECT_REST_ADVERTISED_HOST_NAME: connect
       CONNECT_REST_PORT: 8083
@@ -37,5 +58,47 @@ services:
       CONNECT_KEY_CONVERTER: "org.apache.kafka.connect.storage.StringConverter"
       CONNECT_VALUE_CONVERTER: "org.apache.kafka.connect.storage.StringConverter"
       CONNECT_PLUGIN_PATH: "/usr/share/java"
+      # --- JMX Exporter -----------------------------------
+      KAFKA_JMX_PORT: 9998
+      KAFKA_JMX_HOSTNAME: 127.0.0.1
+      KAFKA_JMX_OPTS: >
+        -javaagent:/jmx/jmx_prometheus_javaagent.jar=9102:/jmx/kafka-connect.yml
+        -Dcom.sun.management.jmxremote
+        -Dcom.sun.management.jmxremote.authenticate=false
+        -Dcom.sun.management.jmxremote.ssl=false
+    ports:
+      - "8083:8083"
+      - "9102:9102"
+    volumes:
+      - ../monitoring/jmx_prometheus_javaagent-1.3.0.jar:/jmx/jmx_prometheus_javaagent.jar
+      - ../monitoring/kafka-connect.yml:/jmx/kafka-connect.yml
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
     depends_on:
       - kafka
+      - connect
+    ports:
+      - "9090:9090"
+    volumes:
+      - ../monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../grafana/data:/var/lib/grafana
+      # (optionnel) provisioning automatique
+      - ../grafana/provisioning:/etc/grafana/provisioning
+      - ../grafana/dashboards:/etc/grafana/dashboards
+
+networks:
+  default:
+    name: kafka-net
