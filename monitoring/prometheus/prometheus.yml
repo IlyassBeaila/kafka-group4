@@ -7,10 +7,6 @@ scrape_configs:
     static_configs:
       - targets: ['kafka:9101']
 
-  - job_name: 'kafka-connect'
-    static_configs:
-      - targets: ['connect:9102']
-
   - job_name: 'weather-consumer'
     static_configs:
       - targets: ['host.docker.internal:8080']
